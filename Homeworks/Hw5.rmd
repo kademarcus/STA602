@@ -1,0 +1,29 @@
+---
+title: "Hw5"
+output: pdf_document
+date: "2026-09-25"
+---
+## 1. 
+
+From empirical rule, 95 percent of data falls within two standard deviations of the mean.
+$$ \mu = 1.50 \text{ and } sd = 0.2$$ Since it falls between 2 standard deviations, $$0.2* 2 = 0.4, \text{ so } d = \pm 0.4$$
+
+
+## 2. 
+
+$$ E(3X -2) = 3E(X) - 2$$ From below $$E(X) = 4 \text{ so } \textbf{E(Y) = 3(4) - 2 = 10 }$$
+```{r}
+f_X <- function(x){
+  x * (0.25*exp(-x/4))
+}
+mu <- integrate(f_X, 0, Inf) #since 0 on negatives
+mu
+```
+$$Var(3X -2) = 9Var(X)$$ and $$ Var(X) = 16 \text{ so } \textbf{Var(Y) = 9 * 16 = 144}$$
+```{r}
+var_F <- function(x){
+  ((x-4)^2) * (0.25*exp(-x/4))
+}
+sigma <- integrate(var_F, 0, Inf)
+sigma 
+```
